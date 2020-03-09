@@ -1,7 +1,7 @@
 {
   "name": "jv-next",
   "version": "0.1.0",
-  "description": "A Next.js showcase.",
+  "private": true,
   "main": "next.config.js",
   "scripts": {
     "dev": "next",
