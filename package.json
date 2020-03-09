@@ -1,0 +1,21 @@
+{
+  "name": "jv-next",
+  "version": "0.1.0",
+  "description": "A Next.js showcase.",
+  "main": "next.config.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amplitudejs": "^5.0.3",
+    "next": "^9.2.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "reactstrap": "^8.4.1"
+  }
+}
