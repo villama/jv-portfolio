@@ -1,8 +1,14 @@
 import Amplitude from 'amplitudejs'
 import timestamps from '../utils/timestamps'
+import { useRef } from 'react'
 
 export default function MusicOverlay() {
+  const opacity = 0.075
+
   let beatCount = 0
+  let opacityDelta = 0
+
+  const staticEl = useRef(null)
 
   window.onload = () => {
     Amplitude.init({
@@ -14,11 +20,16 @@ export default function MusicOverlay() {
     })
 
     const renderFrame = () => {
-      const currentSongTime = Amplitude.getSongPlayedSeconds()
-      if (currentSongTime >= timestamps[beatCount]) {
+      const currSongTime = Amplitude.getSongPlayedSeconds()
+
+      if (currSongTime >= timestamps[beatCount]) {
         beatCount += 1
+        opacityDelta += 0.05
         console.log(`beatCount: ${beatCount}`)
       }
+
+      staticEl.current.style.opacity = opacity + opacityDelta
+
       if (beatCount < timestamps.length) requestAnimationFrame(renderFrame)
     }
     renderFrame()
@@ -26,7 +37,7 @@ export default function MusicOverlay() {
 
   return (
     <div>
-      <div className='static' />
+      <div className='static' ref={staticEl} />
       <p
         onClick={() => {
           Amplitude.play()
@@ -41,7 +52,7 @@ export default function MusicOverlay() {
           width: 100%;
           top: 0;
           left: 0;
-          opacity: 0.075;
+          opacity: ${opacity + opacityDelta};
           position: fixed;
           pointer-events: none;
           animation: flip 0.3s steps(1) infinite;
