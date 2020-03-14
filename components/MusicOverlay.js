@@ -15,13 +15,11 @@ export default function Music() {
 
     const renderFrame = () => {
       const currentSongTime = Amplitude.getSongPlayedSeconds()
-      if (beatCount < timestamps.length) {
-        if (currentSongTime >= timestamps[beatCount]) {
-          beatCount += 1
-          console.log(`beatCount: ${beatCount}`)
-        }
+      if (currentSongTime >= timestamps[beatCount]) {
+        beatCount += 1
+        console.log(`beatCount: ${beatCount}`)
       }
-      requestAnimationFrame(renderFrame)
+      if (beatCount < timestamps.length) requestAnimationFrame(renderFrame)
     }
     renderFrame()
   }
