@@ -1,6 +1,8 @@
 import dynamic from 'next/dynamic'
 
-const Music = dynamic(() => import('../components/Music'), { ssr: false })
+const Music = dynamic(() => import('../components/MusicOverlay'), {
+  ssr: false
+})
 
 export default function Index() {
   return (
