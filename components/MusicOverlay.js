@@ -1,7 +1,7 @@
 import Amplitude from 'amplitudejs'
 import timestamps from '../utils/timestamps'
 
-export default function Music() {
+export default function MusicOverlay() {
   let beatCount = 0
 
   window.onload = () => {
@@ -26,6 +26,7 @@ export default function Music() {
 
   return (
     <div>
+      <div className='static' />
       <p
         onClick={() => {
           Amplitude.play()
@@ -33,6 +34,36 @@ export default function Music() {
       >
         Start Song
       </p>
+      <style jsx>{`
+        .static {
+          background-image: url('/static.png');
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          opacity: 0.075;
+          position: fixed;
+          pointer-events: none;
+          animation: flip 0.3s steps(1) infinite;
+          z-index: 0;
+        }
+
+        @keyframes flip {
+          0%,
+          100% {
+            transform: scaleX(1) scaleY(1);
+          }
+          25% {
+            transform: scaleX(-1) scaleY(1);
+          }
+          50% {
+            transform: scaleX(-1) scaleY(-1);
+          }
+          75% {
+            transform: scaleX(1) scaleY(-1);
+          }
+        }
+      `}</style>
     </div>
   )
 }
