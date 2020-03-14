@@ -1,3 +1,12 @@
+import dynamic from 'next/dynamic'
+
+const Music = dynamic(() => import('../components/Music'), { ssr: false })
+
 export default function Index() {
-  return <h1>Hello World!</h1>
+  return (
+    <div>
+      <h1>Hello World!</h1>
+      <Music />
+    </div>
+  )
 }
