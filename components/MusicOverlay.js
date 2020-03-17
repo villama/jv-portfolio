@@ -24,14 +24,23 @@ export default function MusicOverlay() {
 
       if (currSongTime >= timestamps[beatCount]) {
         beatCount += 1
-        opacityDelta += 0.05
+        opacityDelta = 0.05
         console.log(`beatCount: ${beatCount}`)
       }
 
+      // Static decay
+      opacityDelta = Math.max(opacityDelta - 0.005, 0)
+
+      // Beats 15-16
+      if (beatCount === 15) opacityDelta = 0.05
+      if (beatCount === 16) opacityDelta = 0
+
       staticEl.current.style.opacity = opacity + opacityDelta
 
-      if (beatCount < timestamps.length) requestAnimationFrame(renderFrame)
+      if (beatCount < timestamps.length || opacityDelta > 0)
+        requestAnimationFrame(renderFrame)
     }
+
     renderFrame()
   }
 
