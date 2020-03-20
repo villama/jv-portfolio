@@ -3,12 +3,12 @@ import timestamps from '../utils/timestamps'
 import { useRef } from 'react'
 
 export default function MusicOverlay() {
-  const opacity = 0.075
+  const staticEl = useRef(null)
+
+  const opacityFloor = 0.075
+  const opacityCeiling = 0.125
 
   let beatCount = 0
-  let opacityDelta = 0
-
-  const staticEl = useRef(null)
 
   window.onload = () => {
     Amplitude.init({
@@ -24,8 +24,8 @@ export default function MusicOverlay() {
 
       if (currSongTime >= timestamps[beatCount]) {
         beatCount += 1
-        staticEl.current.classList.remove('fade')
-        setTimeout(() => staticEl.current.classList.add('fade'), 1)
+        staticEl.current.classList.remove('pulse')
+        setTimeout(() => staticEl.current.classList.add('pulse'), 1)
       }
 
       if (beatCount < timestamps.length) requestAnimationFrame(renderFrame)
@@ -44,6 +44,7 @@ export default function MusicOverlay() {
       >
         Start Song
       </p>
+
       <style jsx>{`
         .static {
           background-image: url('/static.png');
@@ -51,18 +52,18 @@ export default function MusicOverlay() {
           width: 100%;
           top: 0;
           left: 0;
-          opacity: ${opacity};
+          opacity: ${opacityFloor};
           position: fixed;
           pointer-events: none;
-          animation: flip 0.3s steps(1) infinite;
+          animation: jumble-anim 0.3s steps(1) infinite;
           z-index: 0;
         }
 
-        .fade {
-          animation: flip 0.3s steps(1) infinite, fade-anim 1.5s;
+        .pulse {
+          animation: jumble-anim 0.3s steps(1) infinite, pulse-anim 1.5s;
         }
 
-        @keyframes flip {
+        @keyframes jumble-anim {
           0%,
           100% {
             transform: scaleX(1) scaleY(1);
@@ -78,12 +79,12 @@ export default function MusicOverlay() {
           }
         }
 
-        @keyframes fade-anim {
+        @keyframes pulse-anim {
           0% {
-            opacity: 0.2;
+            opacity: ${opacityCeiling};
           }
           100% {
-            opacity: 0.075;
+            opacity: ${opacityFloor};
           }
         }
       `}</style>
