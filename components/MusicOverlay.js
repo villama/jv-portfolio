@@ -10,7 +10,7 @@ export default function MusicOverlay() {
 
   let beatCount = 0
 
-  window.onload = () => {
+  window.onload = function() {
     Amplitude.init({
       songs: [
         {
@@ -19,16 +19,20 @@ export default function MusicOverlay() {
       ]
     })
 
-    const renderFrame = () => {
+    function renderFrame() {
       const currSongTime = Amplitude.getSongPlayedSeconds()
 
       if (currSongTime >= timestamps[beatCount]) {
+        restartPulseAnimation()
         beatCount += 1
-        staticEl.current.classList.remove('pulse')
-        setTimeout(() => staticEl.current.classList.add('pulse'), 1)
       }
 
       if (beatCount < timestamps.length) requestAnimationFrame(renderFrame)
+    }
+
+    function restartPulseAnimation() {
+      staticEl.current.classList.remove('pulse')
+      setTimeout(() => staticEl.current.classList.add('pulse'), 1)
     }
 
     renderFrame()
