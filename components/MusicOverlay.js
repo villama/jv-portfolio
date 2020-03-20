@@ -24,21 +24,11 @@ export default function MusicOverlay() {
 
       if (currSongTime >= timestamps[beatCount]) {
         beatCount += 1
-        opacityDelta = 0.05
-        console.log(`beatCount: ${beatCount}`)
+        staticEl.current.classList.remove('fade')
+        setTimeout(() => staticEl.current.classList.add('fade'), 1)
       }
 
-      // Static decay
-      opacityDelta = Math.max(opacityDelta - 0.005, 0)
-
-      // Beats 15-16
-      if (beatCount === 15) opacityDelta = 0.05
-      if (beatCount === 16) opacityDelta = 0
-
-      staticEl.current.style.opacity = opacity + opacityDelta
-
-      if (beatCount < timestamps.length || opacityDelta > 0)
-        requestAnimationFrame(renderFrame)
+      if (beatCount < timestamps.length) requestAnimationFrame(renderFrame)
     }
 
     renderFrame()
@@ -61,11 +51,15 @@ export default function MusicOverlay() {
           width: 100%;
           top: 0;
           left: 0;
-          opacity: ${opacity + opacityDelta};
+          opacity: ${opacity};
           position: fixed;
           pointer-events: none;
           animation: flip 0.3s steps(1) infinite;
           z-index: 0;
+        }
+
+        .fade {
+          animation: flip 0.3s steps(1) infinite, fade-anim 1.5s;
         }
 
         @keyframes flip {
@@ -74,13 +68,22 @@ export default function MusicOverlay() {
             transform: scaleX(1) scaleY(1);
           }
           25% {
-            transform: scaleX(-1) scaleY(1);
+            transform: scaleX(-1) scaleY(-1);
           }
           50% {
-            transform: scaleX(-1) scaleY(-1);
+            transform: scaleX(-1) scaleY(1);
           }
           75% {
             transform: scaleX(1) scaleY(-1);
+          }
+        }
+
+        @keyframes fade-anim {
+          0% {
+            opacity: 0.2;
+          }
+          100% {
+            opacity: 0.075;
           }
         }
       `}</style>
