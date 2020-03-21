@@ -11,9 +11,9 @@ export default function MusicOverlay() {
 
   const setSickoMode = useContext(SetSickoModeContext)
 
-  const opacityFloor = 0.08
-  const opacityCeiling = 0.18
-  const opacitySicko = 0.6
+  const opacityFloor = 0.075
+  const opacityCeiling = 0.2
+  const opacitySicko = 0.75
 
   let initialized = false
   let beatCount = 0
