@@ -1,6 +1,10 @@
+import { useContext } from 'react'
+import { SickoModeContext } from '../utils/context'
 import Links from './Links'
 
 export default function Page({ idx }) {
+  const sickoMode = useContext(SickoModeContext)
+
   const pageVars = [
     {
       backgroundColor: '#fafafa',
@@ -49,6 +53,7 @@ export default function Page({ idx }) {
         h1 {
           font-size: calc(3vw + 3vh + 1.5vmin);
           margin: 0;
+          color: ${sickoMode ? 'white' : 'black'};
         }
 
         .subtitle {

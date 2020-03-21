@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic'
 import Page from '../components/Page'
+import { ContextProvider } from '../utils/context'
 
 const MusicOverlay = dynamic(() => import('../components/MusicOverlay'), {
   ssr: false
@@ -8,9 +9,11 @@ const MusicOverlay = dynamic(() => import('../components/MusicOverlay'), {
 export default function Index() {
   return (
     <div>
-      <MusicOverlay />
-      <Page idx={0} />
-      <Page idx={1} />
+      <ContextProvider>
+        <MusicOverlay />
+        <Page idx={0} />
+        <Page idx={1} />
+      </ContextProvider>
 
       <style jsx global>{`
         body {

@@ -1,6 +1,8 @@
 import Amplitude from 'amplitudejs'
 import timestamps from '../utils/timestamps'
 import { useRef } from 'react'
+import { useContext } from 'react'
+import { SetSickoModeContext } from '../utils/context'
 
 export default function MusicOverlay() {
   const staticEl = useRef()
@@ -8,8 +10,10 @@ export default function MusicOverlay() {
   const volOffEl = useRef()
   const volLoadingEl = useRef()
 
-  const opacityFloor = 0.075
-  const opacityCeiling = 0.15
+  const setSickoMode = useContext(SetSickoModeContext)
+
+  const opacityFloor = 0.1
+  const opacityCeiling = 0.2
 
   let initialized = false
   let beatCount = 0
@@ -29,9 +33,13 @@ export default function MusicOverlay() {
       if (currSongTime >= timestamps[beatCount]) {
         beatCount += 1
 
-        if (beatCount == 15) addHeavyClass()
-        else if (beatCount == 16) removeHeavyClass()
-        else restartPulseAnimation()
+        if (beatCount == 15) {
+          addHeavyClass()
+          setSickoMode(true)
+        } else if (beatCount == 16) {
+          removeHeavyClass()
+          setSickoMode(false)
+        } else restartPulseAnimation()
       }
 
       if (beatCount < timestamps.length) requestAnimationFrame(renderFrame)
@@ -150,7 +158,7 @@ export default function MusicOverlay() {
         }
 
         .heavy {
-          opacity: ${opacityCeiling};
+          opacity: ${opacityCeiling * 2};
           animation: jumble-anim 0.3s steps(1) infinite;
         }
 
