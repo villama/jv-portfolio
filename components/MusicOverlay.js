@@ -9,7 +9,7 @@ export default function MusicOverlay() {
   const volLoadingEl = useRef()
 
   const opacityFloor = 0.075
-  const opacityCeiling = 0.2
+  const opacityCeiling = 0.15
 
   let initialized = false
   let beatCount = 0
