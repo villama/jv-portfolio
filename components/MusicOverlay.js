@@ -53,13 +53,13 @@ export default function MusicOverlay() {
   return (
     <div>
       <div className='static' ref={staticEl} />
-      <p
+      {/* <p
         onClick={() => {
           Amplitude.play()
         }}
       >
         Start Song
-      </p>
+      </p> */}
 
       <style jsx>{`
         .static {
