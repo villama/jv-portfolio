@@ -17,6 +17,7 @@ export default function MusicOverlay() {
 
   let initialized = false
   let beatCount = 0
+  let buttonsEnabled = true
 
   function initialize() {
     Amplitude.init({
@@ -63,13 +64,15 @@ export default function MusicOverlay() {
   }
 
   function handleTogglingOn() {
+    if (!buttonsEnabled) return
+    else disableButtons(500)
     if (!initialized) {
       initialize()
       initialized = true
     }
 
     Amplitude.play()
-    setLoadingIcon(100)
+    setLoadingIcon(500)
     changeSoundIcon('on')
   }
 
@@ -85,6 +88,8 @@ export default function MusicOverlay() {
   }
 
   function handleTogglingOff() {
+    if (!buttonsEnabled) return
+    else disableButtons(500)
     Amplitude.pause()
     changeSoundIcon('off')
   }
@@ -104,6 +109,11 @@ export default function MusicOverlay() {
       case 'loading':
         volLoadingEl.current.classList.remove('hidden')
     }
+  }
+
+  function disableButtons(ms) {
+    buttonsEnabled = false
+    setTimeout(() => (buttonsEnabled = true), ms)
   }
 
   return (
