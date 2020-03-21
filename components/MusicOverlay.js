@@ -61,7 +61,7 @@ export default function MusicOverlay() {
     }
 
     Amplitude.play()
-    setLoadingIcon(500)
+    setLoadingIcon(100)
     changeSoundIcon('on')
   }
 
