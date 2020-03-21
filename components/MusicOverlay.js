@@ -23,11 +23,23 @@ export default function MusicOverlay() {
       const currSongTime = Amplitude.getSongPlayedSeconds()
 
       if (currSongTime >= timestamps[beatCount]) {
-        restartPulseAnimation()
         beatCount += 1
+
+        if (beatCount == 15) addHeavyClass()
+        else if (beatCount == 16) removeHeavyClass()
+        else restartPulseAnimation()
       }
 
       if (beatCount < timestamps.length) requestAnimationFrame(renderFrame)
+    }
+
+    function addHeavyClass() {
+      staticEl.current.classList.remove('pulse')
+      staticEl.current.classList.add('heavy')
+    }
+
+    function removeHeavyClass() {
+      staticEl.current.classList.remove('heavy')
     }
 
     function restartPulseAnimation() {
@@ -65,6 +77,11 @@ export default function MusicOverlay() {
 
         .pulse {
           animation: jumble-anim 0.3s steps(1) infinite, pulse-anim 1.5s;
+        }
+
+        .heavy {
+          opacity: ${opacityCeiling};
+          animation: jumble-anim 0.3s steps(1) infinite;
         }
 
         @keyframes jumble-anim {
