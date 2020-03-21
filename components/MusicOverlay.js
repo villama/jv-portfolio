@@ -22,7 +22,7 @@ export default function MusicOverlay() {
     Amplitude.init({
       songs: [
         {
-          url: '/aloneTime.mp3'
+          url: '/music.mp3'
         }
       ]
     })
