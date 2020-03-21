@@ -9,11 +9,12 @@ export default function MusicOverlay() {
   const volLoadingEl = useRef()
 
   const opacityFloor = 0.075
-  const opacityCeiling = 0.125
+  const opacityCeiling = 0.2
 
+  let initialized = false
   let beatCount = 0
 
-  window.onload = function() {
+  function initialize() {
     Amplitude.init({
       songs: [
         {
@@ -54,11 +55,25 @@ export default function MusicOverlay() {
   }
 
   function handleTogglingOn() {
+    if (!initialized) {
+      initialize()
+      initialized = true
+    }
+
     Amplitude.play()
+    setLoadingIcon(500)
     changeSoundIcon('on')
-    // setTimeout(() => {
-    //   if (Amplitude.getSongPlayedSeconds() === 0) changeSoundIcon('loading')
-    // }, 500)
+  }
+
+  function setLoadingIcon(timeout) {
+    setTimeout(() => {
+      if (Amplitude.getSongPlayedSeconds() === 0) {
+        changeSoundIcon('loading')
+        setLoadingIcon(50)
+      } else {
+        changeSoundIcon('on')
+      }
+    }, timeout)
   }
 
   function handleTogglingOff() {
@@ -78,7 +93,7 @@ export default function MusicOverlay() {
       case 'off':
         volOffEl.current.classList.remove('hidden')
         break
-      case 'hidden':
+      case 'loading':
         volLoadingEl.current.classList.remove('hidden')
     }
   }
