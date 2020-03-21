@@ -15,13 +15,10 @@ export default function MusicOverlay() {
   const opacityCeiling = 0.2
   const opacitySicko = 0.75
 
-  let initialized = false
   let beatCount = 0
   let buttonsEnabled = true
 
-  window.onload = initialize
-
-  function initialize() {
+  window.onload = function() {
     Amplitude.init({
       songs: [
         {
@@ -67,15 +64,11 @@ export default function MusicOverlay() {
 
   function handleTogglingOn() {
     if (!buttonsEnabled) return
-    else disableButtons(500)
-    // if (!initialized) {
-    //   initialize()
-    //   initialized = true
-    // }
+    else disableButtons(300)
 
     Amplitude.play()
-    setLoadingIcon(500)
-    changeSoundIcon('on')
+    if (Amplitude.getSongPlayedSeconds() > 0) changeSoundIcon('on')
+    else setLoadingIcon(300)
   }
 
   function setLoadingIcon(timeout) {
@@ -91,7 +84,7 @@ export default function MusicOverlay() {
 
   function handleTogglingOff() {
     if (!buttonsEnabled) return
-    else disableButtons(500)
+    else disableButtons(300)
     Amplitude.pause()
     changeSoundIcon('off')
   }
