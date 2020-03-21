@@ -11,8 +11,9 @@ export default function MusicOverlay() {
 
   const setSickoMode = useContext(SetSickoModeContext)
 
-  const opacityFloor = 0.1
-  const opacityCeiling = 0.2
+  const opacityFloor = 0.08
+  const opacityCeiling = 0.18
+  const opacitySicko = 0.6
 
   let initialized = false
   let beatCount = 0
@@ -157,7 +158,7 @@ export default function MusicOverlay() {
         }
 
         .heavy {
-          opacity: ${opacityCeiling * 2};
+          opacity: ${opacitySicko};
           animation: jumble-anim 0.3s steps(1) infinite;
         }
 
