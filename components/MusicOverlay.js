@@ -1,7 +1,6 @@
 import Amplitude from 'amplitudejs'
 import timestamps from '../utils/timestamps'
-import { useRef } from 'react'
-import { useContext } from 'react'
+import { useRef, useContext } from 'react'
 import { SetSickoModeContext } from '../utils/context'
 
 export default function MusicOverlay() {

@@ -1,6 +1,6 @@
+import Links from './Links'
 import { useContext } from 'react'
 import { SickoModeContext } from '../utils/context'
-import Links from './Links'
 
 export default function Page({ idx }) {
   const sickoMode = useContext(SickoModeContext)
