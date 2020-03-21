@@ -19,6 +19,8 @@ export default function MusicOverlay() {
   let beatCount = 0
   let buttonsEnabled = true
 
+  window.onload = initialize
+
   function initialize() {
     Amplitude.init({
       songs: [
@@ -66,10 +68,10 @@ export default function MusicOverlay() {
   function handleTogglingOn() {
     if (!buttonsEnabled) return
     else disableButtons(500)
-    if (!initialized) {
-      initialize()
-      initialized = true
-    }
+    // if (!initialized) {
+    //   initialize()
+    //   initialized = true
+    // }
 
     Amplitude.play()
     setLoadingIcon(500)
