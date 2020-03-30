@@ -1,6 +1,6 @@
 # jv-portfolio
 
-A personal portfolio built using Next.js
+A personal portfolio built using Next.js.
 
 ### `npm run dev`
 
