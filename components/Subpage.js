@@ -2,7 +2,7 @@ import Links from './Links'
 import { useContext } from 'react'
 import { SickoModeContext } from '../utils/context'
 
-export default function Page({ idx }) {
+export default function Subpage({ idx }) {
   const sickoMode = useContext(SickoModeContext)
 
   const pageVars = [
