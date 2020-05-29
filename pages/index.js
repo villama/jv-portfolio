@@ -7,7 +7,7 @@ const MusicOverlay = dynamic(() => import('../components/MusicOverlay'), {
   ssr: false
 })
 
-export default function Index() {
+export default function IndexPage() {
   return (
     <div>
       <Head>
