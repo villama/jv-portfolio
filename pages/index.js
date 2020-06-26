@@ -2,12 +2,11 @@ import dynamic from 'next/dynamic'
 import Subpage from '../components/Subpage'
 import { ContextProvider } from '../utils/context'
 import Head from 'next/head'
-
 const MusicOverlay = dynamic(() => import('../components/MusicOverlay'), {
   ssr: false
 })
 
-export default function Page() {
+export default function IndexPage() {
   return (
     <div>
       <Head>
