@@ -42,13 +42,14 @@ export default function Links() {
 
         .link:hover svg {
           transform: translateY(-3px);
+          fill: tomato;
         }
 
         svg {
           padding-top: 10px;
           padding-left: 20px;
           cursor: pointer;
-          transition: transform 0.2s;
+          transition: transform 0.2s, fill 0.2s;
         }
       `}</style>
     </div>
