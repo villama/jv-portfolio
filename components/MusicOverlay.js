@@ -18,7 +18,7 @@ export default function MusicOverlay() {
   let beatCount = 0
   let buttonsEnabled = true
 
-  window.onload = function() {
+  window.onload = () => {
     Amplitude.init({
       songs: [
         {
@@ -204,6 +204,11 @@ export default function MusicOverlay() {
           fill: black;
           height: 24px;
           width: 24px;
+          transition: 200ms;
+        }
+
+        svg:hover {
+          fill: tomato;
         }
 
         .spinner svg {
