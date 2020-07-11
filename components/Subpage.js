@@ -1,6 +1,7 @@
-import Links from './Links'
 import { useContext } from 'react'
 import { SickoModeContext } from '../utils/context'
+import Links from './Links'
+import Anchor from './Anchor'
 
 export default function Subpage({ idx }) {
   const sickoMode = useContext(SickoModeContext)
@@ -16,36 +17,12 @@ export default function Subpage({ idx }) {
       backgroundColor: '#d7a798',
       subtitleTexts: [
         <React.Fragment>
-          <a className='anchor' href='https://www.uvic.ca/'>
-            UVic
-            <style jsx>{`
-              .anchor {
-                text-decoration: none;
-                color: inherit;
-              }
-              .anchor:hover {
-                color: tomato;
-                transition: 200ms;
-              }
-            `}</style>
-          </a>{' '}
-          Grad, Computer Science & Psychology
+          <Anchor display='UVic' link='https://uvic.ca/' /> Grad, Computer
+          Science & Psychology
         </React.Fragment>,
         <React.Fragment>
           Currently at{' '}
-          <a className='anchor' href='https://www.exansoftware.com/'>
-            Exan Software
-            <style jsx>{`
-              .anchor {
-                text-decoration: none;
-                color: inherit;
-              }
-              .anchor:hover {
-                color: tomato;
-                transition: 200ms;
-              }
-            `}</style>
-          </a>
+          <Anchor display='Exan Software' link='https://exansoftware.com/' />
         </React.Fragment>
       ],
       subtitleSize: 'calc(0.7vw + 0.7vh + 0.9vmin)',
