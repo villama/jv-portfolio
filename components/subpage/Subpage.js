@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { SickoModeContext } from '../utils/context'
+import { SickoModeContext } from '../../utils/context'
 import Links from './Links'
 import Anchor from './Anchor'
 
