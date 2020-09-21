@@ -1,0 +1,10 @@
+.anchor {
+  text-decoration: none;
+  color: inherit;
+  transition: 200ms;
+
+  &:hover {
+    color: tomato;
+    text-shadow: 0.5px 0px, 0.5px 0px;
+  }
+}
