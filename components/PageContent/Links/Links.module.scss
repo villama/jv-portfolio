@@ -1,0 +1,19 @@
+.links {
+  display: flex;
+  justify-content: flex-end;
+  -webkit-tap-highlight-color: transparent;
+
+  .link {
+    svg {
+      padding-top: 10px;
+      padding-left: 20px;
+      cursor: pointer;
+      transition: transform 0.2s, fill 0.2s;
+    }
+
+    &:hover svg {
+      transform: translateY(-3px);
+      fill: tomato;
+    }
+  }
+}
