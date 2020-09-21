@@ -1,8 +1,9 @@
 import dynamic from 'next/dynamic'
-import Subpage from '../components/subpage/Subpage'
+import Content from '../components/PageContent/PageContent'
 import { ContextProvider } from '../utils/context'
 import Head from 'next/head'
-const MusicOverlay = dynamic(() => import('../components/MusicOverlay'), {
+
+const MusicOverlay = dynamic(() => import('../components/MusicOverlay/MusicOverlay'), {
   ssr: false
 })
 
@@ -19,16 +20,14 @@ export default function IndexPage() {
       </Head>
       <ContextProvider>
         <MusicOverlay />
-        <Subpage idx={0} />
-        <Subpage idx={1} />
+        <Content />
       </ContextProvider>
 
       <style jsx global>{`
         body {
           margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-            'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-            'Helvetica Neue', sans-serif;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+            'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           text-align: center;
