@@ -1,8 +1,7 @@
-import { ReactNode } from 'react'
 import styles from './Anchor.module.scss'
 
 type AnchorProps = {
-  display: ReactNode
+  display: React.ReactNode
   link: string
 }
 
