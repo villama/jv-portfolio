@@ -5,10 +5,10 @@ import { Context } from '../../utils/Context'
 import styles from './MusicOverlay.module.scss'
 
 export default function MusicOverlay() {
-  const staticEl = useRef()
-  const volOnEl = useRef()
-  const volOffEl = useRef()
-  const volLoadingEl = useRef()
+  const staticEl = useRef<HTMLDivElement>(null)
+  const volOnEl = useRef<HTMLDivElement>(null)
+  const volOffEl = useRef<HTMLDivElement>(null)
+  const volLoadingEl = useRef<HTMLDivElement>(null)
 
   const { setSickoMode } = useContext(Context)
 
@@ -43,17 +43,17 @@ export default function MusicOverlay() {
     }
 
     function addHeavyClass() {
-      staticEl.current.classList.remove(styles.pulse)
-      staticEl.current.classList.add(styles.heavy)
+      staticEl.current!.classList.remove(styles.pulse)
+      staticEl.current!.classList.add(styles.heavy)
     }
 
     function removeHeavyClass() {
-      staticEl.current.classList.remove(styles.heavy)
+      staticEl.current!.classList.remove(styles.heavy)
     }
 
     function restartPulseAnimation() {
-      staticEl.current.classList.remove(styles.pulse)
-      setTimeout(() => staticEl.current.classList.add(styles.pulse), 1)
+      staticEl.current!.classList.remove(styles.pulse)
+      setTimeout(() => staticEl.current!.classList.add(styles.pulse), 1)
     }
 
     renderFrame()
@@ -68,7 +68,7 @@ export default function MusicOverlay() {
     else setLoadingIcon(300)
   }
 
-  function setLoadingIcon(timeout) {
+  function setLoadingIcon(timeout: number) {
     setTimeout(() => {
       if (Amplitude.getSongPlayedSeconds() === 0) {
         changeSoundIcon('loading')
@@ -86,24 +86,24 @@ export default function MusicOverlay() {
     changeSoundIcon('off')
   }
 
-  function changeSoundIcon(icon) {
-    volOnEl.current.classList.add(styles.hidden)
-    volOffEl.current.classList.add(styles.hidden)
-    volLoadingEl.current.classList.add(styles.hidden)
+  function changeSoundIcon(icon: string) {
+    volOnEl.current!.classList.add(styles.hidden)
+    volOffEl.current!.classList.add(styles.hidden)
+    volLoadingEl.current!.classList.add(styles.hidden)
 
     switch (icon) {
       case 'on':
-        volOnEl.current.classList.remove(styles.hidden)
+        volOnEl.current!.classList.remove(styles.hidden)
         break
       case 'off':
-        volOffEl.current.classList.remove(styles.hidden)
+        volOffEl.current!.classList.remove(styles.hidden)
         break
       case 'loading':
-        volLoadingEl.current.classList.remove(styles.hidden)
+        volLoadingEl.current!.classList.remove(styles.hidden)
     }
   }
 
-  function disableButtons(ms) {
+  function disableButtons(ms: number) {
     buttonsEnabled = false
     setTimeout(() => (buttonsEnabled = true), ms)
   }
