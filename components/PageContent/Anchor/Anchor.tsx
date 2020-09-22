@@ -1,6 +1,12 @@
+import { ReactNode } from 'react'
 import styles from './Anchor.module.scss'
 
-export default function Anchor({ display, link }) {
+type AnchorProps = {
+  display: ReactNode,
+  link: string
+}
+
+export default function Anchor({ display, link }: AnchorProps) {
   return (
     <a
       className={styles.anchor}

@@ -1,11 +1,11 @@
 import { useContext } from 'react'
-import { SickoModeContext } from '../../utils/context'
+import { IsSickoModeContext } from '../../utils/context'
 import Links from './Links/Links'
 import Anchor from './Anchor/Anchor'
 import styles from './PageContent.module.scss'
 
-export default function Subpage() {
-  const sickoMode = useContext(SickoModeContext)
+function PageContent() {
+  const sickoMode = useContext(IsSickoModeContext)
 
   return (
     <div className={styles.container}>
@@ -39,3 +39,5 @@ export default function Subpage() {
     </div>
   )
 }
+
+export default PageContent

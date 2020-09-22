@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic'
 import PageContent from '../components/PageContent/PageContent'
 import Head from 'next/head'
-
 const MusicOverlay = dynamic(() => import('../components/MusicOverlay/MusicOverlay'), { ssr: false })
 
 function IndexPage() {
