@@ -9,7 +9,7 @@
     position: fixed;
     pointer-events: none;
     animation: jumble-anim 0.3s steps(1) infinite;
-    z-index: 0;
+    z-index: 1;
   }
 
   .pulse {

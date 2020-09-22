@@ -1,13 +1,10 @@
 import dynamic from 'next/dynamic'
-import Content from '../components/PageContent/PageContent'
-import { ContextProvider } from '../utils/context'
+import PageContent from '../components/PageContent/PageContent'
 import Head from 'next/head'
 
-const MusicOverlay = dynamic(() => import('../components/MusicOverlay/MusicOverlay'), {
-  ssr: false
-})
+const MusicOverlay = dynamic(() => import('../components/MusicOverlay/MusicOverlay'), { ssr: false })
 
-export default function IndexPage() {
+function IndexPage() {
   return (
     <div>
       <Head>
@@ -18,10 +15,10 @@ export default function IndexPage() {
         />
         <title>Julius Villamayor</title>
       </Head>
-      <ContextProvider>
-        <MusicOverlay />
-        <Content />
-      </ContextProvider>
+      <MusicOverlay />
+      <PageContent />
     </div>
   )
 }
+
+export default IndexPage
