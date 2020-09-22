@@ -1,17 +1,18 @@
 import { useContext } from 'react'
-import { IsSickoModeContext } from '../../utils/context'
+import { Context } from '../../utils/Context'
 import Links from './Links/Links'
 import Anchor from './Anchor/Anchor'
 import styles from './PageContent.module.scss'
 
 function PageContent() {
-  const sickoMode = useContext(IsSickoModeContext)
+  console.log('rerendering PageContent')
+  const { isSickoMode } = useContext(Context)
 
   return (
     <div className={styles.container}>
       <div className={[styles.page, styles.one].join(' ')}>
         <div>
-          <h1 className={[styles.title, sickoMode && styles.sickoMode].join(' ')}>
+          <h1 className={[styles.title, isSickoMode && styles.sickoMode].join(' ')}>
             Julius Villamayor
           </h1>
           <div className={styles.subtitle}>
@@ -22,7 +23,7 @@ function PageContent() {
 
       <div className={[styles.page, styles.two].join(' ')}>
         <div>
-          <h1 className={[styles.title, sickoMode && styles.sickoMode].join(' ')}>
+          <h1 className={[styles.title, isSickoMode && styles.sickoMode].join(' ')}>
             Julius Villamayor
           </h1>
           <div className={styles.subtitle}>

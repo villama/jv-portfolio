@@ -1,7 +1,7 @@
 import Amplitude from 'amplitudejs'
 import timestamps from '../../utils/timestamps'
 import { useRef, useContext } from 'react'
-import { ContextSetters } from '../../utils/context'
+import { Context } from '../../utils/Context'
 import styles from './MusicOverlay.module.scss'
 
 export default function MusicOverlay() {
@@ -10,7 +10,7 @@ export default function MusicOverlay() {
   const volOffEl = useRef()
   const volLoadingEl = useRef()
 
-  const { setSickoMode } = useContext(ContextSetters)
+  const { setSickoMode } = useContext(Context)
 
   let beatCount = 0
   let buttonsEnabled = true
