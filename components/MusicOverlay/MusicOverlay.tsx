@@ -1,6 +1,6 @@
 import Amplitude from 'amplitudejs'
 import timestamps from '../../utils/timestamps'
-import { useRef, useContext } from 'react'
+import { useRef, useContext, useEffect } from 'react'
 import { Context } from '../../utils/Context'
 import styles from './MusicOverlay.module.scss'
 
@@ -15,7 +15,7 @@ export default function MusicOverlay() {
   let beatCount = 0
   let buttonsEnabled = true
 
-  window.onload = () => {
+  useEffect(() => {
     console.log(Amplitude)
     console.log(Amplitude.getSongs())
     initAmplitude()
@@ -54,8 +54,7 @@ export default function MusicOverlay() {
     }
 
     renderFrame()
-  }
-
+  })
   function initAmplitude() {
     Amplitude.init({
       songs: [
