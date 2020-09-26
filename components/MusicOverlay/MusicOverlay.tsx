@@ -16,13 +16,7 @@ export default function MusicOverlay() {
   let buttonsEnabled = true
 
   window.onload = () => {
-    Amplitude.init({
-      songs: [
-        {
-          url: '/music.mp3'
-        }
-      ]
-    })
+    initAmplitude()
 
     function renderFrame() {
       const currSongTime = Amplitude.getSongPlayedSeconds()
@@ -59,9 +53,21 @@ export default function MusicOverlay() {
     renderFrame()
   }
 
+  function initAmplitude() {
+    Amplitude.init({
+      songs: [
+        {
+          url: '/music.mp3'
+        }
+      ]
+    })
+  }
+
   function handleTogglingOn() {
     if (!buttonsEnabled) return
     else disableButtons(300)
+
+    if (!Amplitude) initAmplitude()
 
     Amplitude.play()
     if (Amplitude.getSongPlayedSeconds() > 0) changeSoundIcon('on')
