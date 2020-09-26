@@ -1,7 +1,9 @@
+import styles from './Links.module.scss'
+
 export default function Links() {
   return (
-    <div className='links'>
-      <div className='link'>
+    <div className={styles.links}>
+      <div className={styles.link}>
         <a
           href='https://github.com/villama/'
           target='_blank'
@@ -13,7 +15,7 @@ export default function Links() {
           </svg>
         </a>
       </div>
-      <div className='link'>
+      <div className={styles.link}>
         <a
           href='https://www.linkedin.com/in/juliusvillamayor/'
           target='_blank'
@@ -25,7 +27,7 @@ export default function Links() {
           </svg>
         </a>
       </div>
-      <div className='link'>
+      <div className={styles.link}>
         <a href='/jv-resume.pdf' target='_blank' rel='noopener noreferrer'>
           <svg width='24' height='24' viewBox='0 0 24 24'>
             <title>Resume</title>
@@ -33,25 +35,6 @@ export default function Links() {
           </svg>
         </a>
       </div>
-      <style jsx>{`
-        .links {
-          display: flex;
-          justify-content: flex-end;
-          -webkit-tap-highlight-color: transparent;
-        }
-
-        .link:hover svg {
-          transform: translateY(-3px);
-          fill: tomato;
-        }
-
-        svg {
-          padding-top: 10px;
-          padding-left: 20px;
-          cursor: pointer;
-          transition: transform 0.2s, fill 0.2s;
-        }
-      `}</style>
     </div>
   )
 }

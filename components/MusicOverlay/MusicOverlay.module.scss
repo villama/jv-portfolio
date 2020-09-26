@@ -1,0 +1,91 @@
+.container {
+  .static {
+    background-image: url('/static.png');
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.075;
+    position: fixed;
+    pointer-events: none;
+    animation: jumble-anim 0.3s steps(1) infinite;
+    z-index: 1;
+  }
+
+  .pulse {
+    animation: jumble-anim 0.3s steps(1) infinite, pulse-anim 1.5s;
+  }
+
+  .heavy {
+    opacity: 0.75;
+    animation: jumble-anim 0.3s steps(1) infinite;
+  }
+
+  @keyframes jumble-anim {
+    0%,
+    100% {
+      transform: scaleX(1) scaleY(1);
+    }
+    25% {
+      transform: scaleX(-1) scaleY(-1);
+    }
+    50% {
+      transform: scaleX(-1) scaleY(1);
+    }
+    75% {
+      transform: scaleX(1) scaleY(-1);
+    }
+  }
+
+  @keyframes pulse-anim {
+    0% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 0.075;
+    }
+  }
+
+  .sound {
+    bottom: 0;
+    right: 0;
+    padding: 1.5rem;
+    position: fixed;
+    opacity: 0.8;
+    z-index: 2;
+  }
+
+  svg {
+    cursor: pointer;
+    fill: black;
+    height: 24px;
+    width: 24px;
+    transition: 200ms;
+  }
+
+  svg:hover {
+    fill: tomato;
+  }
+
+  .spinner svg {
+    animation: spin 0.7s linear infinite;
+  }
+
+  @keyframes spin {
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  @media screen and (min-width: 576px) {
+    svg {
+      height: 48px;
+      width: 48px;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+}

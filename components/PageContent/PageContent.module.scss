@@ -1,0 +1,54 @@
+.container {
+  .page {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: right;
+    cursor: default;
+
+    & > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .title {
+      font-size: calc(3vw + 3vh + 1.5vmin);
+      margin: 0;
+
+      &.sickoMode {
+        color: white;
+      }
+    }
+
+    .subtitle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      height: calc(3vw + 3vh + 1.5vmin);
+
+      p {
+        margin: 0;
+        right: 0;
+      }
+    }
+
+    &.one {
+      background-color: #fafafa;
+
+      .subtitle p {
+        font-size: calc(1vw + 1vh + 1vmin);
+      }
+    }
+
+    &.two {
+      background-color: #d7a798;
+
+      .subtitle p {
+        font-size: calc(0.7vw + 0.7vh + 0.9vmin);
+      }
+    }
+  }
+}
