@@ -56,7 +56,7 @@ export default function MusicOverlay() {
     Amplitude.init({
       songs: [
         {
-          url: '/music.mp3'
+          url: '/85ccb7fb-e7cc-4419-be81-db8e74290bd4.mp3'
         }
       ]
     })
