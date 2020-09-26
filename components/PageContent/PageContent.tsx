@@ -1,11 +1,11 @@
 import { useContext } from 'react'
-import { Context } from '../../utils/Context'
+import { IsSickoModeContext } from '../../utils/Context'
 import Links from './Links/Links'
 import Anchor from './Anchor/Anchor'
 import styles from './PageContent.module.scss'
 
 function PageContent() {
-  const { isSickoMode } = useContext(Context)
+  const isSickoMode = useContext(IsSickoModeContext)
 
   return (
     <div className={styles.container}>

@@ -1,20 +1,18 @@
 import { createContext, useState } from 'react'
 
-type ContextType = {
-  isSickoMode: boolean
-  setSickoMode: (val: boolean) => void
-}
-
-const Context = createContext<ContextType>(null!)
+const IsSickoModeContext = createContext<boolean>(null!)
+const SetSickoModeContext = createContext<(val: boolean) => void>(null!)
 
 function ContextProvider({ children }: { children: React.ReactNode }) {
   const [isSickoMode, setSickoMode] = useState(false)
 
   return (
-    <Context.Provider value={{ isSickoMode, setSickoMode }}>
-      {children}
-    </Context.Provider>
+    <IsSickoModeContext.Provider value={isSickoMode}>
+      <SetSickoModeContext.Provider value={setSickoMode}>
+        {children}
+      </SetSickoModeContext.Provider>
+    </IsSickoModeContext.Provider>
   )
 }
 
-export { Context, ContextProvider }
+export { SetSickoModeContext, IsSickoModeContext, ContextProvider }

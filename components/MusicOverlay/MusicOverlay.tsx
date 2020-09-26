@@ -1,7 +1,7 @@
 import Amplitude from 'amplitudejs'
 import timestamps from '../../utils/timestamps'
 import { useRef, useContext, useEffect } from 'react'
-import { Context } from '../../utils/Context'
+import { SetSickoModeContext } from '../../utils/Context'
 import styles from './MusicOverlay.module.scss'
 
 export default function MusicOverlay() {
@@ -10,51 +10,48 @@ export default function MusicOverlay() {
   const volOffEl = useRef<HTMLDivElement>(null)
   const volLoadingEl = useRef<HTMLDivElement>(null)
 
-  const { setSickoMode } = useContext(Context)
+  const setSickoMode = useContext(SetSickoModeContext)
 
   let beatCount = 0
   let buttonsEnabled = true
 
   useEffect(() => {
-    console.log(Amplitude)
-    console.log(Amplitude.getSongs())
     initAmplitude()
-    console.log(Amplitude.getSongs())
-
-    function renderFrame() {
-      const currSongTime = Amplitude.getSongPlayedSeconds()
-
-      if (currSongTime >= timestamps[beatCount]) {
-        beatCount += 1
-
-        if (beatCount == 15) {
-          addHeavyClass()
-          setSickoMode(true)
-        } else if (beatCount == 16) {
-          removeHeavyClass()
-          setSickoMode(false)
-        } else restartPulseAnimation()
-      }
-
-      if (beatCount < timestamps.length) requestAnimationFrame(renderFrame)
-    }
-
-    function addHeavyClass() {
-      staticEl.current!.classList.remove(styles.pulse)
-      staticEl.current!.classList.add(styles.heavy)
-    }
-
-    function removeHeavyClass() {
-      staticEl.current!.classList.remove(styles.heavy)
-    }
-
-    function restartPulseAnimation() {
-      staticEl.current!.classList.remove(styles.pulse)
-      setTimeout(() => staticEl.current!.classList.add(styles.pulse), 1)
-    }
-
     renderFrame()
   })
+
+  function renderFrame() {
+    const currSongTime = Amplitude.getSongPlayedSeconds()
+
+    if (currSongTime >= timestamps[beatCount]) {
+      beatCount += 1
+
+      if (beatCount == 15) {
+        addHeavyClass()
+        setSickoMode(true)
+      } else if (beatCount == 16) {
+        removeHeavyClass()
+        setSickoMode(false)
+      } else restartPulseAnimation()
+    }
+
+    if (beatCount < timestamps.length) requestAnimationFrame(renderFrame)
+  }
+
+  function addHeavyClass() {
+    staticEl.current!.classList.remove(styles.pulse)
+    staticEl.current!.classList.add(styles.heavy)
+  }
+
+  function removeHeavyClass() {
+    staticEl.current!.classList.remove(styles.heavy)
+  }
+
+  function restartPulseAnimation() {
+    staticEl.current!.classList.remove(styles.pulse)
+    setTimeout(() => staticEl.current!.classList.add(styles.pulse), 1)
+  }
+
   function initAmplitude() {
     Amplitude.init({
       songs: [
