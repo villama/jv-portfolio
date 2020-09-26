@@ -16,7 +16,10 @@ export default function MusicOverlay() {
   let buttonsEnabled = true
 
   window.onload = () => {
+    console.log(Amplitude)
+    console.log(Amplitude.getSongs())
     initAmplitude()
+    console.log(Amplitude.getSongs())
 
     function renderFrame() {
       const currSongTime = Amplitude.getSongPlayedSeconds()
