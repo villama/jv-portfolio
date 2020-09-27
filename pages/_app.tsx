@@ -1,12 +1,12 @@
 import '../globals.scss'
 import { AppProps } from 'next/app'
-import { ContextProvider } from '../utils/Context'
+import { SickoModeProvider } from '../context/sickoMode-context'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ContextProvider>
+    <SickoModeProvider>
       <Component {...pageProps} />
-    </ContextProvider>
+    </SickoModeProvider>
   )
 }
 

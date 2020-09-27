@@ -1,11 +1,9 @@
 import styles from './Anchor.module.scss'
 
-type AnchorProps = {
+export default function Anchor({ display, link }: {
   display: React.ReactNode
   link: string
-}
-
-export default function Anchor({ display, link }: AnchorProps) {
+}) {
   return (
     <a
       className={styles.anchor}

@@ -1,7 +1,7 @@
 import Amplitude from 'amplitudejs'
-import timestamps from '../../utils/timestamps'
-import { useRef, useContext, useEffect } from 'react'
-import { SetSickoModeContext } from '../../utils/Context'
+import timestamps from './timestamps'
+import { useRef, useEffect } from 'react'
+import { useSickoModeDispatch } from '../../context/sickoMode-context'
 import styles from './MusicOverlay.module.scss'
 
 export default function MusicOverlay() {
@@ -10,7 +10,7 @@ export default function MusicOverlay() {
   const volOffEl = useRef<HTMLDivElement>(null)
   const volLoadingEl = useRef<HTMLDivElement>(null)
 
-  const setSickoMode = useContext(SetSickoModeContext)
+  const sickoModeDispatch = useSickoModeDispatch()
 
   let beatCount = 0
   let buttonsEnabled = true
@@ -28,10 +28,10 @@ export default function MusicOverlay() {
 
       if (beatCount == 15) {
         addHeavyClass()
-        setSickoMode(true)
+        sickoModeDispatch({ type: 'toggle' })
       } else if (beatCount == 16) {
         removeHeavyClass()
-        setSickoMode(false)
+        sickoModeDispatch({ type: 'toggle' })
       } else restartPulseAnimation()
     }
 
