@@ -1,7 +1,8 @@
 import styles from './Anchor.module.scss'
+import { ReactNode } from 'react'
 
-export default function Anchor({ display, link }: {
-  display: React.ReactNode
+export default function Anchor({ children, link }: {
+  children: ReactNode
   link: string
 }) {
   return (
@@ -11,7 +12,7 @@ export default function Anchor({ display, link }: {
       target='_blank'
       rel='noopener noreferrer'
     >
-      {display}
+      {children}
     </a>
   )
 }

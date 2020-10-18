@@ -28,10 +28,10 @@ function PageContent() {
           </h1>
           <div className={styles.subtitle}>
             <p>
-              <Anchor display='UVic' link='https://uvic.ca/' /> Grad, Computer Science & Psychology
+              <Anchor link='https://uvic.ca/'>UVic</Anchor> Grad, Computer Science & Psychology
             </p>
             <p>
-              Currently at <Anchor display='Exan Software' link='https://exansoftware.com/' />
+              Currently at <Anchor link='https://exansoftware.com/'>Exan Software</Anchor>
             </p>
           </div>
           <Links />
