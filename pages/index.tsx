@@ -1,13 +1,13 @@
 import dynamic from 'next/dynamic'
-import PageContent from '../components/PageContent/PageContent'
 import Head from 'next/head'
-import { SickoModeProvider } from '../context/sickoMode-context'
-const MusicOverlay = dynamic(() => import('../components/MusicOverlay/MusicOverlay'), { ssr: false })
+import { InvertedProvider } from 'context/inverted-context'
+import PageSpread from 'components/PageSpread'
+const MusicOverlay = dynamic(() => import('components/MusicOverlay'), { ssr: false })
 
 function IndexPage() {
   return (
     <div>
-      <SickoModeProvider>
+      <InvertedProvider>
         <Head>
           <link rel='icon' href='/favicon.ico' />
           <meta
@@ -17,8 +17,8 @@ function IndexPage() {
           <title>Julius Villamayor</title>
         </Head>
         <MusicOverlay />
-        <PageContent />
-      </SickoModeProvider>
+        <PageSpread />
+      </InvertedProvider>
     </div>
   )
 }

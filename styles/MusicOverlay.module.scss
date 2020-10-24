@@ -1,11 +1,14 @@
-.container {
+$baseOpacity: 0.075;
+$heavyOpacity: 0.75;
+
+.musicOverlay {
   .static {
     background-image: url('/static.png');
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
-    opacity: 0.075;
+    opacity: $baseOpacity;
     position: fixed;
     pointer-events: none;
     animation: jumble-anim 0.3s steps(1) infinite;
@@ -17,7 +20,7 @@
   }
 
   .heavy {
-    opacity: 0.75;
+    opacity: $heavyOpacity;
     animation: jumble-anim 0.3s steps(1) infinite;
   }
 
@@ -42,7 +45,7 @@
       opacity: 0.2;
     }
     100% {
-      opacity: 0.075;
+      opacity: $baseOpacity;
     }
   }
 
