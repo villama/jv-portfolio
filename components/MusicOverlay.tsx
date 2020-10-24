@@ -1,5 +1,5 @@
-import { useRef, useEffect } from 'react'
-import { useInvertedDispatch } from 'context/inverted-context'
+import { useRef, useEffect, useContext } from 'react'
+import { SetInvertedContext } from 'context/inverted-context'
 import Amplitude from 'amplitudejs'
 import s from '../styles/MusicOverlay.module.scss'
 
@@ -7,7 +7,7 @@ function MusicOverlay() {
   const song = '/85ccb7fb-e7cc-4419-be81-db8e74290bd4.mp3'
   const songTimestamps = [1.7, 2.65, 3.5, 4.8, 5.3, 7.0, 8.85, 9.65, 10.5, 11.85, 12.3, 13.4, 13.6, 13.8, 14.0, 15.0]
 
-  const invertedDispatch = useInvertedDispatch()
+  const setInverted = useContext(SetInvertedContext)!
 
   const els = {
     static: useRef<HTMLDivElement>(null),
@@ -32,10 +32,10 @@ function MusicOverlay() {
       if (beatCount == 15) {
         els.static.current!.classList.remove(s.pulse)
         els.static.current!.classList.add(s.heavy)
-        invertedDispatch({ type: 'toggle' })
+        setInverted(true)
       } else if (beatCount == 16) {
         els.static.current!.classList.remove(s.heavy)
-        invertedDispatch({ type: 'toggle' })
+        setInverted(false)
       } else {
         els.static.current!.classList.remove(s.pulse)
         setTimeout(() => els.static.current!.classList.add(s.pulse), 1)

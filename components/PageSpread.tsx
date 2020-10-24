@@ -1,17 +1,17 @@
-import { useInvertedState } from 'context/inverted-context'
+import { useContext } from 'react'
+import { InvertedContext } from 'context/inverted-context'
 import SocialLinks from 'components/SocialLinks'
 import InlineAnchor from 'components/InlineAnchor'
 import s from '../styles/PageSpread.module.scss'
 
 function PageSpread() {
-  const inverted = useInvertedState()
-  const { isInverted } = inverted
+  const inverted = useContext(InvertedContext)!
 
   return (
     <div className={s.pageSpread}>
       <div className={`${s.page} ${s.one}`}>
         <div>
-          <h1 className={`${s.title} ${isInverted && s.inverted}`}>
+          <h1 className={`${s.title} ${inverted && s.inverted}`}>
             Julius Villamayor
           </h1>
           <div className={s.subtitle}>
@@ -21,7 +21,7 @@ function PageSpread() {
       </div>
       <div className={`${s.page} ${s.two}`}>
         <div>
-          <h1 className={`${s.title} ${isInverted && s.inverted}`}>
+          <h1 className={`${s.title} ${inverted && s.inverted}`}>
             Julius Villamayor
           </h1>
           <div className={s.subtitle}>
