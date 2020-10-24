@@ -11,7 +11,7 @@ function PageSpread() {
     <div className={s.pageSpread}>
       <div className={`${s.page} ${s.one}`}>
         <div>
-          <h1 className={`${s.title} ${inverted ? s.inverted:''}`}>
+          <h1 className={`${s.title} ${inverted && s.inverted}`}>
             Julius Villamayor
           </h1>
           <div className={s.subtitle}>
@@ -21,7 +21,7 @@ function PageSpread() {
       </div>
       <div className={`${s.page} ${s.two}`}>
         <div>
-          <h1 className={`${s.title} ${inverted ? s.inverted:''}`}>
+          <h1 className={`${s.title} ${inverted && s.inverted}`}>
             Julius Villamayor
           </h1>
           <div className={s.subtitle}>
