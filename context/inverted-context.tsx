@@ -1,6 +1,6 @@
 import { createContext, Dispatch, SetStateAction, useState } from 'react'
 
-const InvertedContext = createContext<boolean| undefined>(undefined)
+const InvertedContext = createContext<boolean | undefined>(undefined)
 const SetInvertedContext = createContext<Dispatch<SetStateAction<boolean>> | undefined>(undefined)
 
 function InvertedProvider({ children }: { children: React.ReactNode }) {
