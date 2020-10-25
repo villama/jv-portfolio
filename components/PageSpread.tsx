@@ -10,7 +10,7 @@ function PageSpread() {
 
   return (
     <div className={s.pageSpread}>
-      <div className={`${s.page} ${s.one}`}>
+      <div className={compose(s.page, s.one)}>
         <div>
           <h1 className={compose(s.title, inverted && s.inverted)}>
             Julius Villamayor
