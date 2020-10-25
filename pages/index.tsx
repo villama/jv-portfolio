@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import { InvertedProvider } from 'context/inverted-context'
-import PageSpread from 'components/PageSpread'
+import PageSpreads from 'components/PageSpreads'
 const MusicOverlay = dynamic(() => import('components/MusicOverlay'), { ssr: false })
 
 function IndexPage() {
@@ -17,7 +17,7 @@ function IndexPage() {
           <title>Julius Villamayor</title>
         </Head>
         <MusicOverlay />
-        <PageSpread />
+        <PageSpreads />
       </InvertedProvider>
     </div>
   )

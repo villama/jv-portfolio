@@ -3,13 +3,13 @@ import { InvertedContext } from 'context/inverted-context'
 import SocialLinks from 'components/SocialLinks'
 import InlineAnchor from 'components/InlineAnchor'
 import compose from 'utils/composeClasses'
-import s from '../styles/PageSpread.module.scss'
+import s from '../styles/PageSpreads.module.scss'
 
-function PageSpread() {
+function PageSpreads() {
   const inverted = useContext(InvertedContext)!
 
   return (
-    <div className={s.pageSpread}>
+    <div className={s.pageSpreads}>
       <div className={compose(s.page, s.one)}>
         <div>
           <h1 className={compose(s.title, inverted && s.inverted)}>
@@ -36,4 +36,4 @@ function PageSpread() {
   )
 }
 
-export default PageSpread
+export default PageSpreads
