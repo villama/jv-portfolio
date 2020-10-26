@@ -1,4 +1,4 @@
-function composeClasses(...args: any[]) {
+function composeClasses(...args: Array<string | null | undefined | false | 0>) {
   let output = ''
 
   args.forEach(arg => {
