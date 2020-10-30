@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import s from '../styles/InlineAnchor.module.scss'
+import s from 'styles/InlineAnchor.module.scss'
 
 interface InlineAnchorProps {
   children: ReactNode

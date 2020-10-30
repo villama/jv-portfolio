@@ -3,7 +3,7 @@ import { InvertedContext } from 'context/inverted-context'
 import SocialLinks from 'components/SocialLinks'
 import InlineAnchor from 'components/InlineAnchor'
 import compose from 'utils/composeClasses'
-import s from '../styles/PageSpreads.module.scss'
+import s from 'styles/PageSpreads.module.scss'
 
 function PageSpreads() {
   const inverted = useContext(InvertedContext)!

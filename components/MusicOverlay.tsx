@@ -2,7 +2,7 @@ import { useRef, useEffect, useContext } from 'react'
 import { SetInvertedContext } from 'context/inverted-context'
 import Amplitude from 'amplitudejs'
 import compose from 'utils/composeClasses'
-import s from '../styles/MusicOverlay.module.scss'
+import s from 'styles/MusicOverlay.module.scss'
 
 function MusicOverlay() {
   const song = '/85ccb7fb-e7cc-4419-be81-db8e74290bd4.mp3'

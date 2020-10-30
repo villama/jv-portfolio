@@ -1,4 +1,4 @@
-import s from '../styles/SocialLinks.module.scss'
+import s from 'styles/SocialLinks.module.scss'
 
 function SocialLinks() {
   return (
