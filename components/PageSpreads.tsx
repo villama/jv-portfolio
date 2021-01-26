@@ -16,7 +16,7 @@ function PageSpreads() {
             Julius Villamayor
           </h1>
           <div className={s.subtitle}>
-            <p><b>Full Stack Developer</b></p>
+            <p><b>Software + DevOps Engineer</b></p>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@ function PageSpreads() {
           </h1>
           <div className={s.subtitle}>
             <p><InlineAnchor link='https://uvic.ca/'>UVic</InlineAnchor> Grad, Computer Science & Psychology</p>
-            <p>Currently at <InlineAnchor link='https://exansoftware.com/'>Exan Software</InlineAnchor></p>
+            <p>Currently at <InlineAnchor link='https://global.rakuten.com/'>Rakuten, Inc.</InlineAnchor></p>
           </div>
           <SocialLinks />
         </div>
