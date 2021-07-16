@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import { InvertedProvider } from 'context/inverted-context'
-import PageSpreads from 'components/PageSpreads'
-import StaticOverlay from 'components/StaticOverlay'
+import { InvertedProvider } from 'src/context/inverted-context'
+import PageSpreads from 'src/components/PageSpreads'
+import StaticOverlay from 'src/components/StaticOverlay'
 
 function IndexPage() {
   return (

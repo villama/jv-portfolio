@@ -1,4 +1,4 @@
-import s from 'styles/StaticOverlay.module.scss'
+import s from 'src/styles/StaticOverlay.module.scss'
 
 export default function StaticOverlay() {
   return (
