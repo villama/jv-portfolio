@@ -1,9 +1,9 @@
 import { useContext } from 'react'
-import { InvertedContext } from 'context/inverted-context'
-import SocialLinks from 'components/SocialLinks'
-import InlineAnchor from 'components/InlineAnchor'
-import compose from 'utils/composeClasses'
-import s from 'styles/PageSpreads.module.scss'
+import { InvertedContext } from 'src/context/inverted-context'
+import SocialLinks from 'src/components/SocialLinks'
+import InlineAnchor from 'src/components/InlineAnchor'
+import compose from 'src/utils/composeClasses'
+import s from 'src/styles/PageSpreads.module.scss'
 
 function PageSpreads() {
   const inverted = useContext(InvertedContext)!
