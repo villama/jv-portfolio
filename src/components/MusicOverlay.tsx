@@ -19,6 +19,7 @@ function MusicOverlay() {
 
   let beatCount = 0
   let buttonsEnabled = true
+  let time = -1
 
   function initAmplitude() {
     Amplitude.init({
@@ -43,6 +44,17 @@ function MusicOverlay() {
       }
     }
     if (beatCount < songTimestamps.length) requestAnimationFrame(renderFrame)
+
+    // Fade in static
+    if (els.static.current) {
+      if (time === -1) time = Date.now()
+      const opacity = (Date.now() - time) / 3000 * 0.075;
+      if (opacity > 0 && opacity < 0.075) {
+        els.static.current.setAttribute('style', `opacity: ${opacity}`)
+      } else {
+        els.static.current.removeAttribute('style')
+      }
+    }
   }
 
   function handleToggleOn() {
