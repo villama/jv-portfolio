@@ -10,6 +10,7 @@ function InlineAnchor({ children, link }: InlineAnchorProps) {
   return (
     <a className={s.inlineAnchor} href={link} target='_blank' rel='noopener noreferrer'>
       {children}
+      test
     </a>
   )
 }
