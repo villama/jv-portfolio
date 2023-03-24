@@ -12,7 +12,7 @@ function IndexPage() {
           <link rel='icon' href='/favicon.ico' />
           <meta
             name='Julius Villamayor'
-            content='A Software Developer | A Graduate from the University of Victoria | BSc Computer Science and Psychology'
+            content='Full Stack Engineer | University of Victoria Graduate, BSc Computer Science and Psychology'
           />
           <title>Julius Villamayor</title>
         </Head>

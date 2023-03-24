@@ -7,7 +7,6 @@ import s from 'src/styles/PageSpreads.module.scss'
 
 function PageSpreads() {
   const inverted = useContext(InvertedContext)!
-
   return (
     <div className={s.pageSpreads}>
       <div className={compose(s.page, s.one)}>
@@ -16,7 +15,7 @@ function PageSpreads() {
             Julius Villamayor
           </h1>
           <div className={s.subtitle}>
-            <p><b>Software + DevOps Engineer</b></p>
+            <p><b>Full Stack Engineer</b></p>
           </div>
         </div>
       </div>
@@ -27,7 +26,7 @@ function PageSpreads() {
           </h1>
           <div className={s.subtitle}>
             <p><InlineAnchor link='https://uvic.ca/'>UVic</InlineAnchor> Grad, Computer Science & Psychology</p>
-            <p>Currently at <InlineAnchor link='https://global.rakuten.com/'>Rakuten, Inc.</InlineAnchor></p>
+            <p>Currently at <InlineAnchor link='https://roms.inc/'>ROMS, Inc.</InlineAnchor></p>
           </div>
           <SocialLinks />
         </div>
